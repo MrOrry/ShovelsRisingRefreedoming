@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/backgrounds/Main Menu.png" type="Texture" id=1]
+[ext_resource path="res://Assets/UI/Title.png" type="Texture" id=2]
+[ext_resource path="res://scenes/ui/Button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/fonts/batmfa__.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scenes/screens/MainMenu.gd" type="Script" id=5]
+[ext_resource path="res://scenes/ui/VolumeContainer.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 21
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 4 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Title" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -429.5
+margin_top = -99.5
+margin_right = 429.5
+margin_bottom = 99.5
+rect_min_size = Vector2( 0.1, 0.1 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="Menu Buttons" type="VBoxContainer" parent="."]
+anchor_left = 0.379
+anchor_top = 0.66
+anchor_right = 0.62
+anchor_bottom = 0.99
+margin_top = -3.05176e-05
+margin_bottom = -6.10352e-05
+alignment = 1
+
+[node name="ButtonStart" parent="Menu Buttons" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 23.0
+margin_top = 29.0
+margin_right = 223.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 200, 60 )
+rect_pivot_offset = Vector2( 129.776, 89.8992 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Spacer" type="TextureRect" parent="Menu Buttons"]
+margin_top = 93.0
+margin_right = 246.0
+margin_bottom = 113.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="ButtonCredits" parent="Menu Buttons" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 43.0
+margin_top = 117.0
+margin_right = 203.0
+margin_bottom = 167.0
+rect_min_size = Vector2( 160, 50 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "CREDITS"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -184.0
+margin_right = 197.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -92.0
+margin_top = -87.0
+margin_right = 92.0
+margin_bottom = 87.0
+color = Color( 0.164706, 0.631373, 0.662745, 1 )
+
+[node name="VBoxContainer2" parent="ColorRect2/ColorRect" instance=ExtResource( 6 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[connection signal="pressed" from="Menu Buttons/ButtonStart" to="." method="_on_ButtonStart_pressed"]
+[connection signal="pressed" from="Menu Buttons/ButtonCredits" to="." method="_on_ButtonCredits_pressed"]

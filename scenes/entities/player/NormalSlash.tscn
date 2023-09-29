@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/entities/player/NormalSlash.gd" type="Script" id=1]
+[ext_resource path="res://assets/characters/player/Attack1.png" type="Texture" id=2]
+[ext_resource path="res://assets/characters/player/Attack3.png" type="Texture" id=3]
+[ext_resource path="res://assets/characters/player/Attack2.png" type="Texture" id=4]
+[ext_resource path="res://assets/sfx/hit.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sfx/normalAttack.wav" type="AudioStream" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 30, 51 )
+
+[node name="NormalSlash" type="Area2D" groups=["PlayerAttack"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+sprite1 = ExtResource( 4 )
+sprite2 = ExtResource( 3 )
+attack_sound = ExtResource( 6 )
+attack_hit = ExtResource( 5 )
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2( -24, 0 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -24.5, -6.77626e-21 )
+scale = Vector2( 0.953125, 1.59375 )
+texture = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.067
+one_shot = true
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+bus = "SFX"
+
+[connection signal="body_entered" from="." to="." method="_on_NormalSlash_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

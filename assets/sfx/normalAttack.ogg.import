@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/normalAttack.ogg-236f5b5df73233cbdb2eeca7900413a2.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/normalAttack.ogg"
+dest_files=[ "res://.import/normalAttack.ogg-236f5b5df73233cbdb2eeca7900413a2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

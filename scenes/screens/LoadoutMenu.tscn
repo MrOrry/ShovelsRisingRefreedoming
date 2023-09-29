@@ -1,0 +1,165 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/backgrounds/LoadoutMenu.png" type="Texture" id=1]
+[ext_resource path="res://scenes/ui/Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/screens/LoadoutMenu.gd" type="Script" id=3]
+[ext_resource path="res://assets/fonts/batmfa__.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scenes/entities/player/Sprite.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[node name="LoadoutMenu" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="LoadoutMenu" type="Sprite" parent="."]
+position = Vector2( 514.25, 302 )
+scale = Vector2( 1.03406, 1.33921 )
+texture = ExtResource( 1 )
+
+[node name="ButtonBack" parent="." instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -6.0
+margin_top = 522.0
+margin_right = 270.0
+margin_bottom = 604.0
+rect_pivot_offset = Vector2( 68, -52 )
+text = "BACK"
+
+[node name="ButtonBegin" parent="." instance=ExtResource( 2 )]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 745.0
+margin_top = 522.0
+margin_right = 1034.0
+margin_bottom = 605.0
+custom_fonts/font = SubResource( 1 )
+text = "BEGIN mission"
+
+[node name="Sprite" parent="." instance=ExtResource( 5 )]
+position = Vector2( 519, 290 )
+scale = Vector2( 3, 3 )
+
+[node name="SwordChanger" type="Button" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 34.0
+margin_top = 100.0
+margin_right = 360.0
+margin_bottom = 227.0
+custom_fonts/font = SubResource( 3 )
+flat = true
+icon_align = 1
+
+[node name="ColorRect" type="ColorRect" parent="SwordChanger"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="SwordChanger"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+text = "Vt17 high
+frecuency blade"
+align = 1
+valign = 1
+
+[node name="ArmChanger" type="Button" parent="."]
+modulate = Color( 0.278431, 0.239216, 0.262745, 1 )
+margin_left = 41.0
+margin_top = 306.0
+margin_right = 367.0
+margin_bottom = 433.0
+custom_fonts/font = SubResource( 3 )
+flat = true
+icon_align = 1
+
+[node name="ColorRect" type="ColorRect" parent="ArmChanger"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="ArmChanger"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+text = "right prostethic
+peronian arm"
+align = 1
+valign = 1
+
+[node name="HeadChanger" type="Button" parent="."]
+modulate = Color( 0.254902, 0.341176, 0.301961, 1 )
+margin_left = 629.0
+margin_top = 89.0
+margin_right = 955.0
+margin_bottom = 216.0
+custom_fonts/font = SubResource( 3 )
+flat = true
+icon_align = 1
+
+[node name="ColorRect" type="ColorRect" parent="HeadChanger"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="HeadChanger"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+text = "light liberator's
+main mind"
+align = 1
+valign = 1
+
+[node name="BodyChanger" type="Button" parent="."]
+modulate = Color( 0.741176, 0.721569, 0.607843, 1 )
+margin_left = 631.0
+margin_top = 326.0
+margin_right = 957.0
+margin_bottom = 453.0
+custom_fonts/font = SubResource( 3 )
+flat = true
+icon_align = 1
+
+[node name="ColorRect" type="ColorRect" parent="BodyChanger"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="BodyChanger"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+text = "xrl8 titanium
+armored body"
+align = 1
+valign = 1
+
+[connection signal="pressed" from="ButtonBack" to="." method="_on_ButtonBack_pressed"]
+[connection signal="pressed" from="ButtonBegin" to="." method="_on_ButtonBegin_pressed"]
+[connection signal="pressed" from="SwordChanger" to="." method="_on_SwordChanger_pressed"]
+[connection signal="pressed" from="ArmChanger" to="." method="_on_ArmChanger_pressed"]
+[connection signal="pressed" from="HeadChanger" to="." method="_on_HeadChanger_pressed"]
+[connection signal="pressed" from="BodyChanger" to="." method="_on_BodyChanger_pressed"]

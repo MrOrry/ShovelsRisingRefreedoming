@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/carpinchoAttack.mp3-6bf0c1285f4bf03813dd6782a95107f4.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/carpinchoAttack.mp3"
+dest_files=[ "res://.import/carpinchoAttack.mp3-6bf0c1285f4bf03813dd6782a95107f4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

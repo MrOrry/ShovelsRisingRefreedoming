@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/fonts/Credits.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/ui/volumeSlider.tscn" type="PackedScene" id=2]
+
+[node name="VBoxContainer2" type="VBoxContainer"]
+margin_left = 325.0
+margin_right = 437.0
+margin_bottom = 172.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Music" type="Label" parent="."]
+margin_top = 11.0
+margin_right = 112.0
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 1 )
+text = "Music"
+align = 1
+valign = 1
+
+[node name="volumeSlider" parent="." instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 68.0
+margin_right = 112.0
+margin_bottom = 84.0
+bus_name = "Music"
+
+[node name="SFX" type="Label" parent="."]
+margin_top = 88.0
+margin_right = 112.0
+margin_bottom = 141.0
+custom_fonts/font = ExtResource( 1 )
+text = "SFX"
+align = 1
+valign = 1
+
+[node name="volumeSlider2" parent="." instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 145.0
+margin_right = 112.0
+margin_bottom = 161.0
+bus_name = "SFX"
