@@ -68,6 +68,7 @@ func stagger():
 func take_damage(damage):
 	HP -= damage
 	if HP <= 0:
+		Globlas.score += 10
 		self.queue_free()
 
 func make_attack_hitbox():

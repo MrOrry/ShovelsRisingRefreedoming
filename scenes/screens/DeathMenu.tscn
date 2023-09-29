@@ -1,0 +1,122 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/ui/ButtonTextureRed.png" type="Texture" id=1]
+[ext_resource path="res://scenes/ui/Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/fonts/batmfa__.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scenes/screens/DeathMenu.gd" type="Script" id=4]
+[ext_resource path="res://assets/fonts/CreditNames.tres" type="DynamicFont" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 105
+outline_size = 7
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="DeathMenu" type="CanvasLayer"]
+layer = 100
+script = ExtResource( 4 )
+
+[node name="Pause" type="Control" parent="."]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="DarkTint" type="ColorRect" parent="Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.352941 )
+
+[node name="OverlayBorder" type="ColorRect" parent="Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -333.5
+margin_top = -239.5
+margin_right = 333.5
+margin_bottom = 239.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Overlay" type="ColorRect" parent="Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -328.0
+margin_top = -233.5
+margin_right = 328.0
+margin_bottom = 233.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color( 0.384314, 0, 0.054902, 1 )
+
+[node name="ButtonArray" type="VBoxContainer" parent="Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -218.0
+margin_top = -92.0
+margin_right = 219.0
+margin_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/separation = 28
+
+[node name="GameOver" type="Label" parent="Pause/ButtonArray"]
+margin_right = 437.0
+margin_bottom = 213.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "GAME
+OVER"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pause/ButtonArray"]
+margin_top = 241.0
+margin_right = 437.0
+margin_bottom = 386.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+size_flags_vertical = 0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause/ButtonArray/HBoxContainer"]
+margin_left = 77.0
+margin_right = 360.0
+margin_bottom = 145.0
+
+[node name="Highscore" type="Label" parent="Pause/ButtonArray/HBoxContainer/VBoxContainer"]
+margin_right = 283.0
+margin_bottom = 66.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 6
+custom_fonts/font = ExtResource( 6 )
+text = "SCORE: 9999"
+
+[node name="LoadoutMenu" parent="Pause/ButtonArray/HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 70.0
+margin_right = 266.0
+margin_bottom = 145.0
+rect_min_size = Vector2( 250, 75 )
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 2 )
+text = "LOADOUT MENU"
+icon = ExtResource( 1 )
+
+[connection signal="pressed" from="Pause/ButtonArray/HBoxContainer/VBoxContainer/LoadoutMenu" to="." method="_on_LoadoutMenu_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/backgrounds/BattlefieldV2.png" type="Texture" id=1]
 [ext_resource path="res://scenes/entities/player/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/screens/PauseMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/entities/EnemySpawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/screens/Gameplay.gd" type="Script" id=6]
+[ext_resource path="res://scenes/screens/DeathMenu.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 925, 269.75 )
@@ -15,6 +16,9 @@ script = ExtResource( 6 )
 
 [node name="PauseMenu" parent="." instance=ExtResource( 4 )]
 pause_mode = 2
+visible = false
+
+[node name="DeathMenu" parent="." instance=ExtResource( 7 )]
 visible = false
 
 [node name="Battlefield" type="Sprite" parent="."]
@@ -63,3 +67,5 @@ intervalDecreaseRate = 0.25
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PoolVector2Array( -401, -66, -421, 948, 1433, 960, 1431, -66, 1297, -78, 1299, 822, -249, 820, -237, -78 )
+
+[connection signal="player_death" from="Player" to="DeathMenu" method="_on_Player_player_death"]

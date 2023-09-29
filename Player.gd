@@ -22,6 +22,7 @@ var normal_attack
 var HP = 100
 var is_on_ground = true
 var attack_pos = Vector2(0,0)
+var has_died = false
 
 onready var normal_attack_cooldown = $NormalAttackCooldown
 onready var dash_timer = $DashDuration
@@ -32,6 +33,8 @@ onready var attack_lock_timer = $AttackLock
 onready var life_bar = $Camera2D/UI/Lifebar
 onready var animator = $AnimationPlayer
 onready var audio = $AudioPlayer2D
+
+signal player_death
 
 func _ready():
 	HP = max_HP
@@ -117,6 +120,7 @@ func _on_AttackCommit_timeout():
 
 func take_damage(damage):
 	HP -= damage
-	if HP <= 0:
-		self.queue_free()
+	if HP <= 0 && not has_died:
+		emit_signal("player_death")
+		has_died = true
 	life_bar.update_hp(HP)
