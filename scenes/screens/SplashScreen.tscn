@@ -33,8 +33,14 @@ tracks/1/keys = {
 } ]
 }
 
-[node name="SplashScreen" type="TextureRect"]
-modulate = Color( 1, 1, 1, 0 )
+[node name="ColorRect" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+color = Color( 0, 0, 0, 1 )
+
+[node name="SplashScreen" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 0
@@ -43,5 +49,5 @@ texture = ExtResource( 1 )
 expand = true
 script = ExtResource( 2 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SplashScreen"]
 anims/FadeIn = SubResource( 1 )

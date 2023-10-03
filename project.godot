@@ -89,8 +89,8 @@ _global_script_class_icons={
 config/name="Shovels Rising Refreedoming"
 run/main_scene="res://scenes/screens/SplashScreen.tscn"
 boot_splash/show_image=false
-boot_splash/bg_color=Color( 0, 0, 0, 1 )
-config/icon="res://icon.png"
+config/icon="res://assets/characters/carpincho/Untitled-35.png"
+config/windows_native_icon="res://Untitled-35.ico"
 
 [autoload]
 
@@ -177,4 +177,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+environment/default_clear_color=Color( 0.257427, 0.414063, 0.116455, 1 )
 environment/default_environment="res://default_env.tres"
